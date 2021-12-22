@@ -7,7 +7,7 @@
 ?>
 <html>
 <section class='container'>
-<div class="container ">
+<div>
 <?= service('validation')->listErrors() ?>
 <form action="<?php echo site_url('/index');?>" method = "post" class='text-right'>
 <?= csrf_field() ?>
@@ -45,13 +45,13 @@
                 
                 <div class="form-group">
                     <label>Name:</label>
-                    <input type="text" class="form-control" name="name" placeholder="Name">
+                    <input type="text" class="form-control" name="name" placeholder="Name" required>
                 </div>
                  
                 <div class="form-group">
                
                     <label>Comment:</label>
-                    <input type="text" class="form-control" name="comment" placeholder="Your Comment">
+                    <input type="text" class="form-control" name="comment" placeholder="Your Comment" required>
                 </div>
                
              

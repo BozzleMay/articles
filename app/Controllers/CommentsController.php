@@ -11,9 +11,29 @@ class CommentsController extends Controller
 
 {
  public function save() {
+
+    helper(['form', 'url']);
+         
+    $val = $this->validate([
+        'name' => 'required',
+        'comment' => 'required'
+    ]);
         $model = new ArticlesModel();
        
         $commentsModel = new CommentsModel();
+
+ 
+        if (!$val)
+        {
+            echo view('templates/header');
+            echo 'This did not work';
+            echo view('templates/footer');
+ 
+            
+ 
+        }
+        else
+        { 
         
         $commentData = [
             'article_id' => $this->request->getVar('articleId'),
@@ -28,6 +48,7 @@ class CommentsController extends Controller
         echo view('templates/header', $data, $commentData);
         echo view('pages/home');
         echo view('templates/footer');
+    }
          
     }
 }
