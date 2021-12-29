@@ -7,7 +7,7 @@ use App\Models\CommentsModel;
 
  use CodeIgniter\Controller;
 
-class ArticlesController extends Controller
+class Articlescontroller extends BaseController
 {
     public function index()
     {
@@ -19,9 +19,10 @@ class ArticlesController extends Controller
         $data['comments'] = $model->getComments();
        
        
-
+        // return redirect()->back();
         echo view('templates/header', $data);
         echo view('pages/home');
         echo view('templates/footer');
     }
+   
 }

@@ -32,10 +32,14 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 // $routes->get('/', 'Pages::index');
+$routes->get('/delete/(:num)', 'Commentscontroller::deleteComment/$1');
 $routes->get('/', 'ArticlesController::index');
 $routes->get('(:any)', 'Pages::view/$1');
+
 $routes->post('/save', 'CommentsController::save');
 $routes->post('/index', 'ArticlesController::index');
+$routes->post('(:any)', 'CommentsController::save');
+
 
 
 /*

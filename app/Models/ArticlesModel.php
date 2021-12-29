@@ -18,7 +18,8 @@ class ArticlesModel extends Model
         $builder = $this->db->table("articles");
 
 		$builder->select('*');
-        $builder->like('name','%' . $phrase . '%','after');
+        $builder->like('category','%' . $phrase . '%','after');
+        $builder->orlike('name','%' . $phrase . '%','after');
 		$query = $builder->get();
         return $query->getResultArray();
     }

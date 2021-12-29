@@ -66,8 +66,15 @@
     </form>
     <?php foreach ($comments as $comment): ?>
          <?php  if ($results['id'] === $comment['article_id']): ?>
-            
+            <div class='comment'>            
             <p> <strong> <?php echo $comment['author'] ?> </strong><em> <?php echo $comment['comments'] ?></em> </p>
+            <form action=" <?php echo base_url('/delete/'.$comment['id']); ?>" method='get'>
+            <button type="submit" class="close deleteComment" aria-label="Close" data-id="<?= $comment['id'];?>">
+          
+            <span aria-hidden="true">&times;</span>
+         </form>
+                </button>
+         </div>
             <?php endif; ?>
             <?php endforeach; ?>
   </div>
@@ -98,6 +105,14 @@
                 const id = $(this).data('id');
                 $('.articleId').val(id);
                 console.log(id)
+             })
+             $('.deleteComment').on('click', function(){
+                const id = $(this).data('id');
+                $('.deleteComment').val(id);
+              
+                // deleteComment(id)
+                console.log(id)
+             
              })
             
         })</script>
